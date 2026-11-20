@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,7 +27,10 @@ public class LimitedPlatformerMovement : MonoBehaviour
     private bool jumpInput;
     
     private Rigidbody2D rb;
-    private CapsuleCollider2D groundCheckCollider; 
+    private CapsuleCollider2D groundCheckCollider;
+
+    public int coinsCollected = 0;
+    public TMP_Text coinText;
 
     
     void Awake()
@@ -46,6 +50,8 @@ public class LimitedPlatformerMovement : MonoBehaviour
             rb.linearVelocityY = jumpForce;
         }
         jumpInput = false; // only jump once for each press of the jump-button
+        
+        
     }
 
     private bool IsGrounded()
